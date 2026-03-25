@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selecta Crates — Coming Soon | Selecta Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --green:  #2ecc40;
+      --gold:   #ffc107;
+      --black:  #0a0a0a;
+      --card:   #161616;
+      --border: #2a2a2a;
+      --text:   #e8e8e8;
+      --muted:  #888;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 200px;
+      opacity: 0.4;
+    }
+
+    .glow {
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -60%);
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,193,7,0.08) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .container {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column;
+      align-items: center;
+    }
+
+    .back {
+      position: fixed; top: 24px; left: 32px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--muted);
+      transition: color 0.2s;
+      z-index: 10;
+    }
+    .back:hover { color: var(--text); }
+
+    .logo {
+      width: 100px; height: 100px; object-fit: contain;
+      margin-bottom: 32px;
+      filter: drop-shadow(0 0 30px rgba(255,193,7,0.2));
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,193,7,0.1);
+      border: 1px solid rgba(255,193,7,0.3);
+      color: var(--gold);
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 100px;
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      letter-spacing: 3px;
+      line-height: 0.95;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    h1 span { color: var(--gold); }
+
+    .sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 460px;
+      margin: 20px auto 40px;
+      line-height: 1.65;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .features {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+      margin-bottom: 48px;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    .pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.8rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 100px;
+    }
+
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 12px 28px; border-radius: 6px;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+      animation: fadeUp 0.6s 0.5s ease both;
+    }
+    .back-btn:hover { border-color: var(--green); color: var(--text); }
+
+    .footer-note {
+      margin-top: 52px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <a href="index.html" class="back">← Selecta Hub</a>
+
+  <div class="container">
+    <img src="SH_TRANSPARENT_NEW.png" alt="Selecta Hub" class="logo"/>
+    <div class="badge">📦 Coming Soon</div>
+
+    <h1>SELECTA<br/><span>CRATES</span></h1>
+
+    <p class="sub">Premium DJ library packs — years of curated music, crates, and sets ready to load straight into Serato. Drop-in and play.</p>
+
+    <div class="features">
+      <span class="pill">🎵 Curated Music Packs</span>
+      <span class="pill">📂 Ready-made Crates</span>
+      <span class="pill">🎛️ Serato Compatible</span>
+      <span class="pill">🔗 Instant Download</span>
+    </div>
+
+    <a href="index.html" class="back-btn">← Back to Selecta Hub</a>
+
+    <p class="footer-note">© 2026 Selecta Hub. All rights reserved.</p>
+  </div>
+</body>
+</html>
