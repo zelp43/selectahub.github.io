@@ -152,6 +152,44 @@
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+
+    .genres-section {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .genres-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .genres-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .genre-pill {
+      background: rgba(255,193,7,0.08);
+      border: 1px solid rgba(255,193,7,0.25);
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .genre-pill:hover {
+      background: rgba(255,193,7,0.15);
+      border-color: rgba(255,193,7,0.5);
+    }
   </style>
 </head>
 <body>
@@ -173,6 +211,33 @@
       <span class="pill">🔗 Instant Download</span>
     </div>
 
+
+    <div class="genres-section">
+      <p class="genres-label">FEATURED GENRES</p>
+      <div class="genres-grid">
+        <span class="genre-pill">🇯🇲 Dancehall</span>
+        <span class="genre-pill">🌿 Reggae</span>
+        <span class="genre-pill">🎉 Soca</span>
+        <span class="genre-pill">🎤 Hip Hop & Trap</span>
+        <span class="genre-pill">💜 R&B</span>
+        <span class="genre-pill">🌍 Afrobeats</span>
+        <span class="genre-pill">🇭🇹 Kompa</span>
+        <span class="genre-pill">🌊 Zouk</span>
+        <span class="genre-pill">🇧🇷 Baile Funk</span>
+        <span class="genre-pill">🔥 Latin & Reggaeton</span>
+        <span class="genre-pill">🔩 Drill</span>
+        <span class="genre-pill">🌅 Amapiano</span>
+        <span class="genre-pill">🇬🇧 Grime</span>
+        <span class="genre-pill">👟 Jersey Club</span>
+        <span class="genre-pill">🏠 House</span>
+        <span class="genre-pill">🎛️ Dancehall Edits & Remixes</span>
+        <span class="genre-pill">🇬🇧 UK Garage</span>
+        <span class="genre-pill">💥 Bashment</span>
+        <span class="genre-pill">🎵 Pop</span>
+        <span class="genre-pill">🤠 Country</span>
+        <span class="genre-pill">🎸 Rock</span>
+      </div>
+    </div>
     <a href="index.html" class="back-btn">← Back to Home</a>
 
     <p class="footer-note">© 2026 Juggernaut Music Group. All rights reserved.</p>
