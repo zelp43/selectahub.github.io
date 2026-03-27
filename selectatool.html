@@ -357,6 +357,29 @@
       border-radius: 12px;
       overflow: hidden;
     }
+
+    .os-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 14px 36px; border-radius: 6px;
+      text-decoration: none;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .os-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    .windows-btn {
+      background: var(--green);
+      color: #000;
+    }
+
+    .mac-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .mac-btn:hover { border-color: var(--muted); color: var(--text); }
   </style>
 </head>
 <body>
@@ -382,11 +405,8 @@
       The ultimate crate management tool for Serato DJs. Build smarter, sort faster, perform better.
     </p>
     <div class="hero-pills">
-      <span class="pill">🪟 Windows App</span>
-      <span class="pill">🎛️ Serato Compatible</span>
-      <span class="pill">📦 Build Crates</span>
-      <span class="pill">🔍 Find Duplicates</span>
-      <span class="pill">📤 Export Libraries</span>
+      <a href="#buy" class="os-btn windows-btn">Windows</a>
+      <a href="selectatoolmac.html" class="os-btn mac-btn">macOS</a>
     </div>
     <div style="margin-top: 28px;">
       <a href="index.html" style="
@@ -492,7 +512,7 @@
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-a">Selecta Tool is built specifically for Serato DJ. It reads and writes directly to Serato's database format so your crates show up immediately without any re-analysis.</div>
-      </div>
+  
 
       <div class="faq-item">
         <button class="faq-q" onclick="shToggleFaq(this)">
@@ -500,7 +520,7 @@
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-a">Currently Selecta Tool is Windows only. Mac support is in development and will be available in a future update — included free with your purchase.</div>
-      </div>
+  
 
       <div class="faq-item">
         <button class="faq-q" onclick="shToggleFaq(this)">
@@ -508,7 +528,7 @@
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-a">One-time payment, lifetime access. No monthly fees, no subscriptions. Pay $29.99 once and you own it — including all future updates.</div>
-      </div>
+  
 
       <div class="faq-item">
         <button class="faq-q" onclick="shToggleFaq(this)">
@@ -516,15 +536,15 @@
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-a">After purchase you receive a license key via email. The key is tied to one machine. It includes a 24-hour offline grace period so you can still use the app if your internet drops.</div>
-      </div>
+  
 
       <div class="faq-item">
         <button class="faq-q" onclick="shToggleFaq(this)">
           Can I try it before buying?
           <span class="faq-arrow">+</span>
         </button>
-        <div class="faq-a">Yes — contact <a href="mailto:info@selectahub.com" style="color:var(--green); text-decoration:underline;">info@selectahub.com</a> to try the tool for 10 minutes through our beta program before committing to a purchase. No credit card needed.</div>
-      </div>
+        <div class="faq-a">Yes — contact <span style="color:var(--green);">info [at] selectahub.com</span> to try the tool for 10 minutes through our beta program before committing to a purchase. No credit card needed.</div>
+  
 
       <div class="faq-item">
         <button class="faq-q" onclick="shToggleFaq(this)">
@@ -532,9 +552,9 @@
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-a">Selecta Tool runs on Windows 10 and Windows 11. No additional dependencies required — just download and run the installer.</div>
-      </div>
+  
 
-    </div>
+
   </section>
 
   <!-- FOOTER -->
@@ -562,9 +582,4 @@
 
   <script>
     function shToggleFaq(btn) {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    }
-  </script>
+      const item = btn.closest('
