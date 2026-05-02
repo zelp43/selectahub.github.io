@@ -18,14 +18,17 @@
   <meta name="description" content="DJ tools, crates, and sound effects built for serious DJs. Explore Selecta Tool, Selecta Crates and more."/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600&display=swap');
+
     :root {
       --green:  #2ecc40;
       --gold:   #ffc107;
+      --purple: #9b59b6;
       --black:  #0a0a0a;
-      --card:   #161616;
-      --border: #2a2a2a;
+      --card:   #111111;
+      --border: #222222;
       --text:   #e8e8e8;
-      --muted:  #888;
+      --muted:  #777;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,7 +42,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       overflow-x: hidden;
     }
 
@@ -51,9 +54,9 @@
     }
 
     .glow {
-      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -60%);
-      width: 700px; height: 700px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(46,204,64,0.08) 0%, transparent 70%);
+      position: fixed; top: 30%; left: 50%; transform: translate(-50%, -50%);
+      width: 800px; height: 800px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(46,204,64,0.06) 0%, transparent 70%);
       pointer-events: none; z-index: 0;
     }
 
@@ -61,72 +64,125 @@
       position: relative; z-index: 1;
       display: flex; flex-direction: column;
       align-items: center; text-align: center;
-      padding: 20px 24px;
+      padding: 40px 20px 48px;
+      width: 100%; max-width: 1100px;
     }
 
     .logo {
-      width: 100px; height: 100px; object-fit: contain;
-      margin-bottom: 16px;
-      filter: drop-shadow(0 0 40px rgba(46,204,64,0.25));
+      width: 88px; height: 88px; object-fit: contain;
+      margin-bottom: 14px;
+      filter: drop-shadow(0 0 32px rgba(46,204,64,0.3));
       animation: fadeUp 0.6s ease both;
     }
 
     .brand {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.2rem, 6vw, 4rem);
-      letter-spacing: 4px; line-height: 1;
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      letter-spacing: 5px; line-height: 1;
       animation: fadeUp 0.6s 0.1s ease both;
     }
     .brand span { color: var(--green); }
 
     .tagline {
-      font-size: 1rem; color: var(--muted);
-      margin: 8px 0 28px; letter-spacing: 1px;
+      font-size: 0.9rem; color: var(--muted);
+      margin: 8px 0 36px; letter-spacing: 2px; text-transform: uppercase;
       animation: fadeUp 0.6s 0.2s ease both;
     }
 
+    /* ── section labels ── */
+    .section-label {
+      width: 100%;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+      text-align: left;
+      padding-left: 2px;
+    }
+
+    /* ── grid ── */
     .products {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px; width: 100%; max-width: 960px;
+      gap: 16px;
+      width: 100%;
       animation: fadeUp 0.6s 0.3s ease both;
     }
 
+    /* ── cards ── */
     .product-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px; padding: 24px 20px;
-      text-decoration: none; color: var(--text);
-      transition: border-color 0.3s, transform 0.3s;
+      border-radius: 14px;
+      padding: 22px 18px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
       position: relative; overflow: hidden;
       display: flex; flex-direction: column;
-      align-items: flex-start; gap: 10px;
-      min-height: 220px;
+      align-items: flex-start; gap: 8px;
+      min-height: 190px;
     }
 
     .product-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
       opacity: 0; transition: opacity 0.3s;
     }
-    .product-card.green::before { background: linear-gradient(90deg, var(--green), var(--gold)); }
-    .product-card.gold::before  { background: linear-gradient(90deg, var(--gold), var(--green)); }
-    .product-card:hover { transform: translateY(-4px); }
-    .product-card.green:hover { border-color: rgba(46,204,64,0.5); }
-    .product-card.gold:hover  { border-color: rgba(255,193,7,0.5); }
-    .product-card:hover::before { opacity: 1; }
+    .product-card.green::before  { background: linear-gradient(90deg, var(--green), var(--gold)); }
+    .product-card.gold::before   { background: linear-gradient(90deg, var(--gold), var(--green)); }
+    .product-card.purple::before { background: linear-gradient(90deg, var(--purple), var(--green)); }
 
-    .product-icon { font-size: 2rem; margin-bottom: 4px; }
+    /* live / clickable hover */
+    a.product-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+    a.product-card.green:hover  { border-color: rgba(46,204,64,0.45); }
+    a.product-card.gold:hover   { border-color: rgba(255,193,7,0.45); }
+    a.product-card.purple:hover { border-color: rgba(155,89,182,0.45); }
+    a.product-card:hover::before { opacity: 1; }
+
+    /* coming-soon cards */
+    div.product-card {
+      cursor: default;
+      opacity: 0.75;
+    }
+    div.product-card:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+    div.product-card.green:hover  { border-color: rgba(46,204,64,0.3); }
+    div.product-card.gold:hover   { border-color: rgba(255,193,7,0.3); }
+    div.product-card.purple:hover { border-color: rgba(155,89,182,0.3); }
+    div.product-card:hover::before { opacity: 0.5; }
+
+    /* coming-soon shimmer overlay */
+    div.product-card::after {
+      content: 'COMING SOON';
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem; letter-spacing: 4px;
+      color: rgba(255,255,255,0.0);
+      background: rgba(0,0,0,0);
+      transition: color 0.25s, background 0.25s;
+      border-radius: 14px;
+    }
+    div.product-card:hover::after {
+      color: rgba(255,255,255,0.85);
+      background: rgba(0,0,0,0.55);
+    }
+
+    .product-icon { font-size: 1.8rem; margin-bottom: 2px; }
 
     .product-name {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem; letter-spacing: 2px; line-height: 1;
+      font-size: 1.6rem; letter-spacing: 2px; line-height: 1;
     }
-    .product-card.green .product-name { color: var(--green); }
-    .product-card.gold  .product-name { color: var(--gold); }
+    .product-card.green .product-name  { color: var(--green); }
+    .product-card.gold  .product-name  { color: var(--gold); }
+    .product-card.purple .product-name { color: var(--purple); }
 
     .product-desc {
-      font-size: 0.85rem; color: var(--muted);
-      line-height: 1.5; text-align: left;
+      font-size: 0.82rem; color: var(--muted);
+      line-height: 1.55; text-align: left;
     }
 
     .spacer { flex: 1; }
@@ -134,12 +190,13 @@
     .card-footer {
       display: flex; align-items: center;
       justify-content: space-between; width: 100%;
+      margin-top: 6px;
     }
 
     .product-badge {
-      font-size: 0.72rem; font-weight: 600;
+      font-size: 0.68rem; font-weight: 600;
       letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 4px 12px; border-radius: 100px;
+      padding: 4px 11px; border-radius: 100px;
     }
     .badge-live {
       background: rgba(46,204,64,0.1);
@@ -147,30 +204,67 @@
       color: var(--green);
     }
     .badge-soon {
-      background: rgba(255,193,7,0.1);
-      border: 1px solid rgba(255,193,7,0.3);
+      background: rgba(255,193,7,0.08);
+      border: 1px solid rgba(255,193,7,0.25);
       color: var(--gold);
+    }
+    .badge-soon-purple {
+      background: rgba(155,89,182,0.08);
+      border: 1px solid rgba(155,89,182,0.25);
+      color: var(--purple);
     }
 
     .arrow {
-      font-size: 1.2rem; color: var(--muted);
-      transition: color 0.3s, transform 0.3s;
+      font-size: 1.1rem; color: var(--muted);
+      transition: color 0.25s, transform 0.25s;
     }
-    .product-card:hover .arrow { color: var(--text); transform: translateX(4px); }
+    a.product-card:hover .arrow { color: var(--text); transform: translateX(4px); }
+
+    /* ── divider between rows ── */
+    .row-gap { height: 10px; }
+
+    /* ── contact + footer ── */
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 32px; margin-bottom: 6px;
+      background: rgba(46,204,64,0.08);
+      border: 1px solid rgba(46,204,64,0.25);
+      color: var(--green);
+      font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 1px; text-decoration: none;
+      padding: 11px 26px; border-radius: 6px;
+      transition: background 0.2s, border-color 0.2s;
+      animation: fadeUp 0.6s 0.5s ease both;
+    }
+    .contact-link:hover {
+      background: rgba(46,204,64,0.15);
+      border-color: rgba(46,204,64,0.45);
+    }
 
     .footer-note {
-      margin-top: 28px; font-size: 0.75rem;
+      margin-top: 10px; font-size: 0.72rem;
       color: var(--muted); letter-spacing: 1px;
-      animation: fadeUp 0.6s 0.4s ease both;
+      animation: fadeUp 0.6s 0.55s ease both;
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 768px) {
-      .products { grid-template-columns: 1fr; max-width: 360px; }
+    /* ── responsive ── */
+    @media (max-width: 860px) {
+      .products { grid-template-columns: repeat(2, 1fr); }
+      .product-card { min-height: 170px; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 28px 14px 40px; }
+      .products { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .product-card { padding: 16px 14px; min-height: 155px; }
+      .product-name { font-size: 1.35rem; }
+      .product-icon { font-size: 1.5rem; }
+      .product-desc { font-size: 0.78rem; }
     }
   </style>
 </head>
@@ -183,6 +277,7 @@
 
     <div class="products">
 
+      <!-- Row 1: live + coming soon -->
       <a href="selectatool.html" class="product-card green">
         <div class="product-icon">🔧</div>
         <div class="product-name">Selecta Tool</div>
@@ -216,18 +311,40 @@
         </div>
       </a>
 
+      <!-- Row 2: coming soon -->
+      <div class="product-card green">
+        <div class="product-icon">⚡</div>
+        <div class="product-name">Selecta Tool Pro</div>
+        <p class="product-desc">Next-level crate management with AI-powered sorting, analytics and sync.</p>
+        <div class="spacer"></div>
+        <div class="card-footer">
+          <span class="product-badge badge-soon">Coming Soon</span>
+        </div>
+      </div>
+
+      <div class="product-card gold">
+        <div class="product-icon">📅</div>
+        <div class="product-name">Selecta Bookings</div>
+        <p class="product-desc">DJ booking management — gigs, contracts, invoices and client comms.</p>
+        <div class="spacer"></div>
+        <div class="card-footer">
+          <span class="product-badge badge-soon">Coming Soon</span>
+        </div>
+      </div>
+
+      <div class="product-card purple">
+        <div class="product-icon">📻</div>
+        <div class="product-name">Selecta Hub Radio</div>
+        <p class="product-desc">Live DJ sets, genre streams, and exclusive mixes from the community.</p>
+        <div class="spacer"></div>
+        <div class="card-footer">
+          <span class="product-badge badge-soon-purple">Coming Soon</span>
+        </div>
+      </div>
+
     </div>
 
-    <a href="mailto:info@selectahub.com" style="
-      display: inline-flex; align-items: center; gap: 8px;
-      margin-top: 28px; margin-bottom: 8px;
-      background: rgba(46,204,64,0.1);
-      border: 1px solid rgba(46,204,64,0.3);
-      color: var(--green);
-      font-size: 0.88rem; font-weight: 600;
-      letter-spacing: 1px; text-decoration: none;
-      padding: 12px 28px; border-radius: 6px;
-      transition: background 0.2s;">✉ info@selectahub.com</a>
+    <a href="mailto:info@selectahub.com" class="contact-link">✉ info@selectahub.com</a>
     <p class="footer-note">© 2026 Juggernaut Music Group. All rights reserved.</p>
   </div>
 </body>
