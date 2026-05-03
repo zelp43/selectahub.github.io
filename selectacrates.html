@@ -113,17 +113,18 @@
     }
 
     .features {
-      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
-      margin-bottom: 48px;
+      display: flex; flex-wrap: wrap; gap: 6px 20px; justify-content: center;
+      margin-top: 32px; margin-bottom: 0;
       animation: fadeUp 0.6s 0.4s ease both;
     }
 
     .pill {
-      background: var(--card);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-size: 0.8rem; font-weight: 500;
-      padding: 6px 14px; border-radius: 100px;
+      color: #555;
+      font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .features {
+      gap: 6px 20px;
     }
 
     .back-btn {
@@ -207,11 +208,11 @@
       border: 1px solid rgba(255,193,7,0.3);
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.78rem;
+      font-size: 0.95rem;
       font-weight: 500;
       letter-spacing: 0.5px;
-      padding: 5px 12px;
-      border-radius: 3px;
+      padding: 9px 18px;
+      border-radius: 4px;
       transition: border-color 0.2s, color 0.2s;
     }
 
@@ -233,12 +234,6 @@
 
     <p class="sub">Premium DJ library packs — years of curated music, crates, and sets ready to load into any DJ software. Drop-in and play.</p>
 
-    <div class="features">
-      <span class="pill">🎵 Curated Music Packs</span>
-      <span class="pill">📂 Ready-made Crates</span>
-      <span class="pill">🎛️ Any DJ Software</span>
-      <span class="pill">🔗 Instant Download</span>
-    </div>
     <div class="genres-section">
       <p class="genres-label">FEATURED GENRES</p>
       <div class="genres-grid">
@@ -260,6 +255,12 @@
         <a href="cratenewdisco.html" class="genre-pill">New Disco &amp; New Jack Swing</a>
         <a href="cratepop.html" class="genre-pill">Pop</a>
       </div>
+    </div>
+    <div class="features">
+      <span class="pill">🎵 Curated Music Packs</span>
+      <span class="pill">📂 Ready-made Crates</span>
+      <span class="pill">🎛️ Any DJ Software</span>
+      <span class="pill">🔗 Instant Download</span>
     </div>
     <p class="genre-request">Don't see your genre? Email us at <a href="mailto:info@selectahub.com">info@selectahub.com</a> and we'll add it to the list.</p>
     <p class="year-note">2026 library is updated throughout the year — prior years are ready to go.</p>
